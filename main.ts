@@ -1,10 +1,12 @@
 basic.forever(function () {
-    if (input.lightLevel() < 50) {
-        led.enable(true)
-        led.setBrightness(255)
-        basic.showIcon(IconNames.Yes)
+    if (input.temperature() < 20) {
+        basic.showString("verhoog de temperatuur!")
     } else {
-        led.enable(false)
-        led.setBrightness(0)
+        if (input.temperature() > 30) {
+            music.playMelody("C5 B C5 B C5 B C5 B ", 120)
+            basic.showString("verlaag de temperatuur!")
+        } else {
+            basic.showString("de temperatuur is goed!")
+        }
     }
 })
